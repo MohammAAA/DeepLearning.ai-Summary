@@ -46,7 +46,9 @@ This is the first course of the deep learning specialization at [Coursera](https
       * [Parameters vs Hyperparameters](#parameters-vs-hyperparameters)
       * [What does this have to do with the brain](#what-does-this-have-to-do-with-the-brain)
    * [Extra: Ian Goodfellow interview](#extra-ian-goodfellow-interview)
-
+   * [Assignments notes]
+      * [Final Assignment note] (#cats specifier)
+   
 ## Course summary
 
 Here are the course summary as its given on the course [link](https://www.coursera.org/learn/neural-networks-deep-learning):
@@ -686,8 +688,16 @@ Here are the course summary as its given on the course [link](https://www.course
 - Ian tells all who wants to get into AI to get a Ph.D. or post your code on Github and the companies will find you.
 - Ian thinks that we need to start anticipating security problems with ML now and make sure that these algorithms are secure from the start instead of trying to patch it in retroactively years later.
 
+## Final Assignment note
 
+-A few types of images the model tends to do poorly on include:
 
+    Cat body in an unusual position
+    Cat appears against a background of a similar color
+    Unusual cat color and species
+    Camera Angle
+    Brightness of the picture
+    Scale variation (cat is very large or small in image)
 
 
 <br><br>
