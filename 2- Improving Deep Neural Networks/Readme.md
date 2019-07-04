@@ -122,7 +122,7 @@ Here are the course summary as its given on the course [link](https://www.course
   - Try regularization.
   - Try a different model that is suitable for your data.
 - You should try the previous two points until you have a low bias and low variance.
-- In the older days before deep learning, there was a "Bias/variance tradeoff". But because now you have more options/tools for solving the bias and variance problem its really helpful to use deep learning.
+- In the older days before deep learning, there was a "Bias/variance tradeoff". But because now you have more options/tools for solving the bias and variance problem its really helpful to use deep learning -- ... this is because we can now train bigger networks without much efforts thanks to our GPUs, and the network size doesn't have a huge effect on the variance, and similarly, the amount of data doesn't mainly affect the bias --
 - Training a bigger neural network never hurts.
 
 ### Regularization
