@@ -252,6 +252,8 @@ _**Implementation tip**_: if you implement gradient descent, one of the steps to
      - This makes your inputs centered around 0.
   3. Get the variance of the training set: `variance = (1/m) * sum(x(i)^2)`
   4. Normalize the variance. `X /= variance`
+
+- And one tip, if you use this previous method to scale your training data, then use the same mu and sigma squared to normalize your test set as  you don't want to normalize the training set and the test set differently.
 - These steps should be applied to training, dev, and testing sets (but using mean and variance of the train set).
 - Why normalize?
   - If we don't normalize the inputs our cost function will be deep and its shape will be inconsistent (elongated) then optimizing it will take a long time.
