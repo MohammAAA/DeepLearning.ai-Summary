@@ -128,6 +128,7 @@ Here are the course summary as its given on the course [link](https://www.course
 ### Regularization
 
 - Adding regularization to NN will help it reduce variance (overfitting)
+- Regularization will drive your weights to lower values.
 - L1 matrix norm:
   - `||W|| = Sum(|w[i,j]|)  # sum of absolute values of all w`
 - L2 matrix norm because of arcane technical math reasons is called Frobenius norm:
@@ -382,6 +383,9 @@ Implications of L2-regularization on:
 - You only use dropout during training. Don't use dropout (randomly eliminate nodes) during test time.
 - Apply dropout both during forward and backward propagation.
 - During training time, divide each dropout layer by keep_prob to keep the same expected value for the activations. For example, if `keep_prob` is 0.5, then we will on average shut down half the nodes, so the output will be scaled by 0.5 since only the remaining half are contributing to the solution. Dividing by 0.5 is equivalent to multiplying by 2. Hence, the output now has the same expected value. You can check that this works even when keep_prob is other values than 0.5.
+- When you shut some neurons down, you actually modify your model. The idea behind drop-out is that at each iteration, you train a different model that uses only a subset of your neurons. With dropout, your neurons thus become less sensitive to the activation of one other specific neuron, because that other neuron might be shut down at any time. 
+
+**Note that regularization hurts training set performance! This is because it limits the ability of the network to overfit to the training set. But since it ultimately gives better test accuracy, it is helping your system. **
 
 
 ## Optimization algorithms
