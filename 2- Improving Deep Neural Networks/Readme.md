@@ -171,6 +171,10 @@ Here are the course summary as its given on the course [link](https://www.course
 
 ### Why regularization reduces overfitting?
 
+personal-->
+  -1- Regularization reduces the weights (W) therefore it can cancel the effect of some neurons which will lead to reduce the overfitting problem
+  -2- after reducing (W) then (Z) is also reduced, so the activation function becomes in the linear region and so the network becomes more linear so that the nonlinearity is reduced and the overfitting is reduced
+
 Here are some intuitions:
   - Intuition 1:
      - If `lambda` is too large - a lot of w's will be close to zeros which will make the NN simpler (you can think of it as it would behave closer to logistic regression).
