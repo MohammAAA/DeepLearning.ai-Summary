@@ -361,6 +361,8 @@ _**Implementation tip**_: if you implement gradient descent, one of the steps to
 **Observations**:   
   - The value of λ is a hyperparameter that you can tune using a dev set.
   - L2 regularization makes your decision boundary smoother. If λ is too large, it is also possible to "oversmooth", resulting in a model with high bias.
+  - A model without regularization gives you a better accuracy on the training set but not necessarily on the test set.
+  - We could use both dropout and regularization on our model
 
 **What is L2-regularization actually doing?**:   
   - L2-regularization relies on the assumption that a model with small weights is simpler than a model with large weights. Thus, by penalizing the square values of the weights in the cost function you drive all the weights to smaller values. It becomes too costly for the cost to have large weights! This leads to a smoother model in which the output changes more slowly as the input changes.
