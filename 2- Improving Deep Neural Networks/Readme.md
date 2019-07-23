@@ -704,12 +704,14 @@ Implications of L2-regularization on:
 ### Why does Batch normalization work?
 
 - The first reason is the same reason as why we normalize X.
-- The second reason is that batch normalization reduces the problem of input values changing (shifting).
+- The second reason is that batch normalization REDUCES the problem of input values changing (covariate shifting)....
+  if the model has learnt some X to Y mapping (cat vs non cat pictures) and if the distribution of X changes (i.e: the images are now colored instead of the old black and white input distribution), then we have to retrain our model in order to perform well, but batch norm reduces this problem.
+- Batch norm helps the layers to learn a little bit more independently of the other layers, hence, speeding up  the whole network learning. 
 - Batch normalization does some regularization:
   - Each mini batch is scaled by the mean/variance computed of that mini-batch.
   - This adds some noise to the values `Z[l]` within that mini batch. So similar to dropout it adds some noise to each hidden layer's activations.
   - This has a slight regularization effect.
-  - Using bigger size of the mini-batch you are reducing noise and therefore regularization effect.
+  - Using bigger size of the mini-batch means you are reducing noise and therefore regularization effect.
   - Don't rely on batch normalization as a regularization. It's intended for normalization of hidden units, activations and therefore speeding up learning. For regularization use other regularization techniques (L2 or dropout).
 
 ### Batch normalization at test time
