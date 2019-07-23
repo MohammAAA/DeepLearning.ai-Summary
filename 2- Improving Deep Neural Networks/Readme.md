@@ -445,6 +445,7 @@ Implications of L2-regularization on:
 ### Exponentially weighted averages
 
 - There are optimization algorithms that are better than **gradient descent**, but you should first learn about Exponentially weighted averages.
+- We mostly use this algorithm to reduce the noise in noisy time-series data. The term we use for this is called “smoothing” the data. (https://medium.com/@abhinav.mahapatra10/beginners-ml-basics-exponentially-weighted-moving-average-8ce3e75768f6)
 - If we have data like the temperature of day through the year it could be like this:
   ```
   t(1) = 40
