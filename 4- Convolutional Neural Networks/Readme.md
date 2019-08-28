@@ -629,11 +629,14 @@ Here is the course summary as given on the course [link](https://www.coursera.or
 
 - For a specific problem we may have a little data for it or a lots of data.
 - Speech recognition problems for example has a big amount of data, while image recognition has a medium amount of data and the object detection has a small amount of data nowadays.
+- Image recognition is how to recognize what is in this image (cat vs dog vs frog vs ..), as for the object detection, it's detecting a specific object (ex.: car, traffic sign, lane detection, ...)
 - If your problem has a large amount of data, researchers are tend to use:
   - Simpler algorithms.
   - Less hand engineering.
 - If you don't have that much data people tend to try more hand engineering for the problem "Hacks". Like choosing a more complex NN architecture.
 - Because we haven't got that much data in a lot of computer vision problems, it relies a lot on hand engineering.
+- "In the absence of more data, the way to get good performance is to spend more time architecting."
+- For image recognition, object detection problems, if we don't have enough data then we are taking the benefits of the transfer learning.
 - We will see in the next chapter that because the object detection has less data, a more complex NN architectures will be presented.
 - Tips for doing well on benchmarks/winning competitions:
   - Ensembling.
@@ -647,7 +650,7 @@ Here is the course summary as given on the course [link](https://www.coursera.or
     - There is a technique called 10 crops that uses this.
     - This can give you a better result in the production.
 - Use open source code
-  - Use architectures of networks published in the literature.
+  - Use architectures of networks published in the literature. --> "a neural network that works well in one computer vision problem often maybe surprisingly work on other computer vision problems as well." 
   - Use open source implementations if possible.
   - Use pretrained models and fine-tune on your dataset.
 
