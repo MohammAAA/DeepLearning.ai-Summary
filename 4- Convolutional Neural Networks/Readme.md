@@ -670,6 +670,7 @@ Here is the course summary as given on the course [link](https://www.coursera.or
   - **Classification with localization**:
     - Given an image we want to learn the class of the image and where are the class location in the image. We need to detect a class and a rectangle of where that object is. Usually only one object is presented.
     - ![](Images/ClassificationLoc.jpg)
+    - We can localize the object by using b_x, b_y, b_h, b_w .. also we can rely on just the X-Y coordinates if we want to define some specific points on the object, the latter method is called Landmark Detection.
   - **Object detection**:
     - Given an image we want to detect all the object in the image that belong to a specific classes and give their location. An image can contain more than one object with different classes.
     - ![](Images/ObjectDetection.png)
