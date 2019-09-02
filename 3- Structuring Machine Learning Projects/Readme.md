@@ -128,7 +128,7 @@ Here are the course summary as its given on the course [link](https://www.course
 
 ### Train/dev/test distributions
 
-- Dev and test sets have to come from the same distribution.
+- Dev and test sets have to come from the same distribution. (3ashan mab2ash ka2enny ba3'ayar mkan el target b3d ma etmarrant 3ala el mkan el awlany)
 - Choose dev set and test set to reflect data you expect to get in the future and consider important to do well on.
 - Setting up the dev set, as well as the validation metric is really defining what target you want to aim at.
 
@@ -159,6 +159,7 @@ Here are the course summary as its given on the course [link](https://www.course
 
   1. Figure out how to define a metric that captures what you want to do - place the target. 
   2. Worry about how to actually do well on this metric - how to aim/shoot accurately at the target.
+- Having an evaluation metric and the dev set allows you to much more quickly make decisions about is Algorithm A or Algorithm B better. It really speeds up how quickly you and your team can iterate. So my recommendation is, even if you can't define the perfect evaluation metric and dev set, just set something up quickly and use that to drive the speed of your team iterating. And if later down the line you find out that it wasn't a good one, you have better idea, change it at that time, it's perfectly okay. But what I recommend against for the most teams is to run for too long without any evaluation metric and dev set up because that can slow down the efficiency of what your team can iterate and improve your algorithm.
 
 - Conclusion: if doing well on your metric + dev/test set doesn't correspond to doing well in your application, change your metric and/or dev/test set.
 
@@ -204,6 +205,7 @@ Here are the course summary as its given on the course [link](https://www.course
      - Calculate `variance = dev error - training error`
      - If **variance** difference is bigger, then you should use a strategy for **variance** resolving.
   3. Dev error
+- And as long as we have the time and resources for our project, we are trying to reduce the avoidable bias and avoidable variance as much as we can.
 - So having an estimate of human-level performance gives you an estimate of Bayes error. And this allows you to more quickly make decisions as to whether you should focus on trying to reduce a bias or trying to reduce the variance of your algorithm.
 - These techniques will tend to work well until you surpass human-level performance, whereupon you might no longer have a good estimate of Bayes error that still helps you make this decision really clearly. 
 
