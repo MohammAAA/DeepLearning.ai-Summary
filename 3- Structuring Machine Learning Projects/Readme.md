@@ -339,19 +339,20 @@ Here are the course summary as its given on the course [link](https://www.course
   5. Test error
      - Calculate `degree of overfitting to dev set = test error - dev error`
      - Is the difference is big (positive) then maybe you need to find a bigger dev set (dev set and test set come from the same distribution, so the only way for there to be a huge gap here, for it to do much better on the dev set than the test set, is if you somehow managed to overfit the dev set).
+- In particular, training on data that comes from different distribution than the dev/test set can get you more data and really help your learning algorithm's performance. But rather than having just the bias and variance problems, we now have new potential problem of data mismatch.
 - Unfortunately, there aren't many systematic ways to deal with data mismatch. There are some things to try about this in the next section.
 
 ### Addressing data mismatch
 
 - There aren't completely systematic solutions to this, but there some things you could try.
-1. Carry out manual error analysis to try to understand the difference between training and dev/test sets.
-2. Make training data more similar, or collect more data similar to dev/test sets.
+1. Carry out manual error analysis to try to understand the difference between training and dev/test sets. --> y3ny masalan andrew sha3'al 3ala rear-view mirror assistant w lamma 3ml el step dy ektshf en el dev/test sets feeha noise mn el cars elly 7awalen el user aw el road noise.
+2. Make training data more similar, or collect more data similar to dev/test sets. --> b3d ma 3rf en feeh moshkela f el difference bet. data hybd2 y3ml synthetic noise w y7ottaha f el training set examples 3shan el training data tb2a shabah el dev/test.
 - If your goal is to make the training data more similar to your dev set one of the techniques you can use **Artificial data synthesis** that can help you make more training data.
     - Combine some of your training data with something that can convert it to the dev/test set distribution.
       - Examples:
         1. Combine normal audio with car noise to get audio with car noise example.
         2. Generate cars using 3D graphics in a car classification example.
-    - Be cautious and bear in mind whether or not you might be accidentally simulating data only from a tiny subset of the space of all possible examples because your NN might overfit these generated data (like particular car noise or a particular design of 3D graphics cars).
+    - Be cautious and bear in mind whether or not you might be accidentally simulating data only from a tiny subset of the space of all possible examples because your NN might overfit these generated data (like particular car noise or a particular design of 3D graphics cars). --> lamma andrew kan m3ah 10,000 hours of speech data w just 1 hour of car noise .. lw hwa 3ml repeat for this 1 hour 10000 times yb2a momken awy y7sl overfit ll model ( br3'm en ana k human hb2a satisfied gdn b el 1 hour dy) w da l2n ana kda b3ml simulation l kol el 10000 hours dol b just 1 hour, y3ny ka2enny wa5ed 7aga so3'yara awy mn domain kbeer
 
 ### Transfer learning
 
@@ -376,6 +377,7 @@ Here are the course summary as its given on the course [link](https://www.course
   `Cost = (1/m) * sum(sum(L(y_hat(i)_j, y(i)_j))), i = 1..m, j = 1..4`, where   
   `L = - y(i)_j * log(y_hat(i)_j) - (1 - y(i)_j) * log(1 - y_hat(i)_j)`
 - In the last example you could have trained 4 neural networks separately but if some of the earlier features in neural network can be shared between these different types of objects, then you find that training one neural network to do four things results in better performance than training 4 completely separate neural networks to do the four tasks separately. 
+- The difference bet. softmax layer and the multi-task learning is that the softmax outputs only one label (can't set labels to both car and pedesterian for the same input), but multi-task learning can recognize cars, pedesterians, traffic signs,... at the same time and for the same image
 - Multi-task learning will also work if y isn't complete for some labels. For example:
   ```
   Y = [1 ? 1 ...]
@@ -388,8 +390,8 @@ Here are the course summary as its given on the course [link](https://www.course
   1. Training on a set of tasks that could benefit from having shared lower-level features.
   2. Usually, amount of data you have for each task is quite similar.
   3. Can train a big enough network to do well on all the tasks.
-- If you can train a big enough NN, the performance of the multi-task learning compared to splitting the tasks is better.
-- Today transfer learning is used more often than multi-task learning.
+- The only time that multi-task learning hurts performance compared to training seperate neural networks is if your multi-task NN isn't big enough, i.e: If you can train a big enough NN, the performance of the multi-task learning compared to splitting the tasks is better.
+- Today transfer learning is used more often than multi-task learning in the deep learning field, but in computer vision: multi-task learning is commonly used as well as transfer learning. ((object detection in multi-task learning is much better than seperate object detection network for each object we want to detect)).
 
 ### What is end-to-end deep learning?
 
@@ -400,8 +402,9 @@ Here are the course summary as its given on the course [link](https://www.course
     Audio ---> Features --> Phonemes --> Words --> Transcript    # non-end-to-end system
     Audio ---------------------------------------> Transcript    # end-to-end deep learning system
     ```
-  - End-to-end deep learning gives data more freedom, it might not use phonemes when training!
-- To build the end-to-end deep learning system that works well, we need a big dataset (more data then in non end-to-end system). If we have a small dataset the ordinary implementation could work just fine.
+  - End-to-end deep learning gives data more freedom, it might not use phonemes while training!
+- To build the end-to-end deep learning system that works well, we need a big dataset (more data than in non end-to-end system). 
+- the pipeline system does better when we have small dataset (3000 hours of data), but if we manage to get more and more data (ex.: 10000 to 100000 hours of data) then end-to-end module will be much better than pipeline. ((when you have a smaller dataset, the more traditional pipeline approach actually works as well or even better than end-to-end, and we need a large dataset before end-to-end approach really shines)).
 - Example 2:
   - Face recognition system:
     ```
@@ -430,13 +433,13 @@ Here are the course summary as its given on the course [link](https://www.course
 ### Whether to use end-to-end deep learning
 
 - Pros of end-to-end deep learning:
-  - Let the data speak. By having a pure machine learning approach, your NN learning input from X to Y may be more able to capture whatever statistics are in the data, rather than being forced to reflect human preconceptions.
+  - End-to-end lets the data speak. By having a pure machine learning approach, your NN learning input from X to Y may be more able to capture whatever statistics are in the data, rather than being forced to reflect human preconceptions.
   - Less hand-designing of components needed.
 - Cons of end-to-end deep learning:
   - May need a large amount of data.
-  - Excludes potentially useful hand-design components (it helps more on the smaller dataset).
+  - Excludes potentially useful hand-design components (it helps more on the smaller dataset) --> sometimes it's a con and sometimes not (ymk3n msln ana 3ayez el machine heya elly t extract el features msh ana .. ymkn hya t extract 7agat ana ma3rafhash).
 - Applying end-to-end deep learning:
-  - Key question: Do you have sufficient data to learn a function of the **complexity** needed to map x to y?
+  - Key question to ask yourself before applying end-to-end: Do you have sufficient data to learn a function of the **complexity** needed to map x to y?
   - Use ML/DL to learn some individual components.
   - When applying supervised learning you should carefully choose what types of X to Y mappings you want to learn depending on what task you can get data for.
 
