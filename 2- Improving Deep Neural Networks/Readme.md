@@ -420,6 +420,8 @@ Implications of L2-regularization on:
 
 - In mini-batch algorithm, the cost won't go down with each step as it does in batch algorithm. It could contain some ups and downs but generally it has to go down (unlike the batch gradient descent where cost function descreases on each iteration).
   ![](Images/04-_batch_vs_mini_batch_cost.png)
+  
+- With batch gradient descent: on every iteration you go through the entire training set, while with mini-batch: you go through only the specific mini-batch examples per mini-batch iteration.
 - Mini-batch size:
   - (`mini batch size = m`)  ==>    Batch gradient descent
   - (`mini batch size = 1`)  ==>    Stochastic gradient descent (SGD)
